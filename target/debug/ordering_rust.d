@@ -1,1 +1,1 @@
-/home/bettoshell/ordering_rust/target/debug/ordering_rust: /home/bettoshell/ordering_rust/src/main.rs
+/home/bettoshell/Alphabetical_Order/target/debug/ordering_rust: /home/bettoshell/Alphabetical_Order/src/main.rs

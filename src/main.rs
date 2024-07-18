@@ -12,6 +12,9 @@ fn main(){
     if pattern == "miniman"{
         println!("WELCOME TO STRING ORDERER\nFor Ascending order, tip 'cargo run -- asc';\nFor descending order, tip 'cargo run -- desc';\nAnd tip 'exit' for out.");
         }
+    else if pattern == "read" && pattwo == "r" {
+        readit(args.path.clone())
+        }
         else{
     loop{
         println!("INSERT A STRING, PLEASE\n> ");
@@ -39,10 +42,15 @@ fn main(){
     std::io::stdin().read_line(&mut kick).expect("Sorry.NOT read the line.");
     let trimd_kick = kick.trim();
     let mkfile = createfile(args.path.clone(), trimd_kick.clone().to_string());
+    for i in vec{
+        let writes = writefile(i.clone(), args.path.clone());
+        println!("{}", i.trim());
+    }
 }else if pattwo == "a"{
     for i in vec{
         let writes = writefile(i.clone(), args.path.clone());
         println!("{}", i.trim());
+        
     }}
 }
 }
@@ -56,5 +64,12 @@ fn writefile(item: String, path: PathBuf) -> std::io::Result<()>{
     }
 fn createfile(path: PathBuf, item: String) -> std::io::Result<()>{
     let file = std::fs::File::create(path);
-    file?.write_all(item.as_bytes())?; Ok(())  
+    file?.write_all(item.as_bytes())?; Ok(()) 
 }
+
+fn readit(file_path: PathBuf){
+    let fmtd = file_path.display();
+    println! ("In the file {fmtd}");
+    let f_contents = std::fs::read_to_string(file_path).expect("Sorry. An error occurred.");
+    println!("With text:\n{f_contents}");
+    }
